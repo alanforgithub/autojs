@@ -1,31 +1,11 @@
 "auto";
-var thread = threads.start(function(){
-    //在子线程执行的定时器
-    setTimeout(function(){
-        log("子线程:" + threads.currentThread());
-        console.show();
-    }, 1000);
-});
+a=device.width;
+b=device.height;
 
-log("当前线程为主线程:" + threads.currentThread());
-console.show();
-
-//等待子线程启动
-thread.waitFor();
-//在子线程执行的定时器
-thread.setTimeout(function(){
-    //这段代码会在子线程执行
-    log("当前线程为子线程:" + threads.currentThread());
-    console.show();
-}, 2000);
-
-log("主线程1s:" + threads.currentThread());
- console.show();
-
-
- setTimeout(function(){
-    log("111线程:" + threads.currentThread());
-    thread.interrupt();
-    log("2222:" + threads.currentThread());
-    console.show();
-}, 6000);
+while(true){
+    toast('12313');
+    swipe(a/2,b/8*7,a/2,b/8*1,1000);
+    // swipe(a/2,b/16*13,a/2,b/16*10,100);
+    // swipe(a/2,b/16*10,a/2,b/16*8,50);
+    sleep("2000");
+}
